@@ -1,17 +1,34 @@
 #include <iostream> 
 
-float power(const float x, const int y) //Uses const so we dont have to come back to reEnter specific parameters(This can be done in main)
+//Global Variables
+float pi = 3.1415927f;
+
+
+
+
+
+//Function example--------------------------------------
+float power(const float x, const int y)//Uses const so our inputs will not change during executing
 {
-	float xPowerY = 1.0f;
+float xPowerY = 1.0f;
 	for (unsigned int i = 0; i < y; i++)
 	{
 		xPowerY *= x;
 	}
 	return xPowerY;
 }
+// -----------------------------------------------------
 
 
+//Function Parameters-----------------------------------
+float radians(const float angle)
+{
 
+	return angle * pi / 180.0f;
+}
+
+
+//------------------------------------------------------
 
 
 
@@ -25,7 +42,7 @@ int main()
 
 	// Degrees to radians conversion ----------------------------
 	float angleInDegrees = 180.0f;
-	float pi = 3.1415927f;
+	
 
 	float angleInRadians = angleInDegrees * pi / 180.0f;
 
@@ -126,9 +143,17 @@ int main()
 	std::cout << "\nFunctions\n---------" << std::endl;
 	std::cout << "2^10 = " << twoPowerTen << std::endl;
 	return 0;
+	//-------------------------------------------------------------
 
 
+	//Function Parameters------------------------------------------
 
+	//Call the radians function 
+	float angle = angleInDegrees;
+	angle = radians(angle);
+	std::cout << "\n" << angleInDegrees << " degrees is equal to " << angle << " radians." << std::endl;
+
+	// ------------------------------------------------------------
 
 
 

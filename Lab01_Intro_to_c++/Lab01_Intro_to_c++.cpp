@@ -27,7 +27,22 @@ int main()
 
 	else
 		std::cout << " Obtuse angle." << std::endl; //else print obtuse angle 
+	// ---------------------------------------------------------
 
+
+
+	//For Loops------------------------------------------------- 
+
+	//Outputs the first 10 powers of 2 
+	std::cout << "\nFor loop|n--------" << std::endl;
+	int powerOfTwo = 1;
+
+
+	for (unsigned int i = 0; i < 10; i++)
+	{
+		powerOfTwo *= 2; //PowerOfTwo Var
+		std::cout << "2^" << i + 1 << " = " << powerOfTwo << std::endl; //Prints 2^ then i + 1 equals powerOfTwo which is *= 2
+	}
 
 	return 0;
 

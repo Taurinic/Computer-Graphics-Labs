@@ -72,11 +72,28 @@ int main()
 		std::cout << " -> " << n;
 
 	}
-	std::cout << "\n\nThe Collatz sequence starting at " << nsave // prints text + current
+	std::cout << "\n\nThe Collatz sequence starting at " << nsave 
 			  << "took " << step << " steps to reach 1. " << std::endl;
 
+	// ----------------------------------------------------------
 
 
+	//MyArray----------------------------------------------------- 
+
+	unsigned int myArray[] = 
+	{
+		3, 1, 4, 1, 5, 9, 2, 6, 5
+	};
+
+	std::cout << "\nArrays\n-------" << std::endl;
+
+	for (unsigned int i = 0; i < 9; i++) 
+	{
+		std::cout << "myArray[" << i << "] = " << myArray[i] << std::endl; //loops 9 times showcasing the array values.
+	}
+
+	std::cout << "\nSize of myArray = " << sizeof(myArray) << std::endl; //Adds all current values within array together. 
+	std::cout << "\nNumber of elements = " << sizeof(myArray) / sizeof(unsigned int) << std::endl;
 
 
 

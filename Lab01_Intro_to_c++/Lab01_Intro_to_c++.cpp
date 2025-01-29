@@ -1,8 +1,25 @@
 #include <iostream> 
 
+float power(const float x, const int y) //Uses const so we dont have to come back to reEnter specific parameters(This can be done in main)
+{
+	float xPowerY = 1.0f;
+	for (unsigned int i = 0; i < y; i++)
+	{
+		xPowerY *= x;
+	}
+	return xPowerY;
+}
+
+
+
+
+
+
+
+
 int main() 
 {
-	//Starting print code
+	//Starting print
 	std::cout << "Hello World! \n" << std::endl;
 
 
@@ -93,11 +110,21 @@ int main()
 	}
 
 	std::cout << "\nSize of myArray = " << sizeof(myArray) << std::endl; //Adds all current values within array together. 
-	std::cout << "\nNumber of elements = " << sizeof(myArray) / sizeof(unsigned int) << std::endl;
+	std::cout << "\nNumber of elements = " << sizeof(myArray) / sizeof(unsigned int) << std::endl; //Gets the number of elements within the myArray.
+
+	// ------------------------------------------------------------
 
 
 
+	//Functions----------------------------------------------------
 
+	//Calling power function 
+
+	float twoPowerTen = power(2.0f, 10);
+
+	//print function
+	std::cout << "\nFunctions\n---------" << std::endl;
+	std::cout << "2^10 = " << twoPowerTen << std::endl;
 	return 0;
 
 

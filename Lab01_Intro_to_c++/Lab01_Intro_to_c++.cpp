@@ -21,10 +21,9 @@ float xPowerY = 1.0f;
 
 
 //Function Parameters-----------------------------------
-float radians(const float angle)
+void radians(float &angle)
 {
-
-	return angle * pi / 180.0f;
+	 angle *= pi / 180;
 }
 
 
@@ -149,11 +148,20 @@ int main()
 	//Function Parameters------------------------------------------
 
 	//Call the radians function 
+	/*
 	float angle = angleInDegrees;
 	angle = radians(angle);
 	std::cout << "\n" << angleInDegrees << " degrees is equal to " << angle << " radians." << std::endl;
-
+	*/
 	// ------------------------------------------------------------
+
+	//Pass by Reference--------------------------------------------
+	//call updated radians function 
+
+	float angle = angleInDegrees;
+	radians(angle);
+
+	std::cout << "\n" << angleInDegrees << "degrees is equal to " << angle << "radians. " << std::endl;
 
 
 

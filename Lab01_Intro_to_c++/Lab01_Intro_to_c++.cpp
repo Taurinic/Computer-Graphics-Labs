@@ -3,7 +3,15 @@
 //Global Variables
 float pi = 3.1415927f;
 
-
+//Car Class----------------
+class Car
+{
+public:
+	std::string make;
+	std::string model;
+	int year;
+	float speed = 0.0f;
+};
 
 
 
@@ -163,6 +171,15 @@ int main()
 
 	std::cout << "\n" << angleInDegrees << "degrees is equal to " << angle << "radians. " << std::endl;
 
+	// Define car object
+	Car delorean;
+	delorean.make = "Delorean";
+	delorean.model = "DMC-12";
+	delorean.year = 1981;
 
+	
 
 }
+
+//Class OOP----------------------------------------------------
+

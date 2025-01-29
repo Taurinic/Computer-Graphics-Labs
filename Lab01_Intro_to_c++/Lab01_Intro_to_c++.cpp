@@ -11,6 +11,9 @@ public:
 	std::string model;
 	int year;
 	float speed = 0.0f;
+
+	// Methods
+	void outputDetails();
 };
 // ------------------------------------------------------------
 

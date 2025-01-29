@@ -43,6 +43,43 @@ int main()
 		powerOfTwo *= 2; //PowerOfTwo Var
 		std::cout << "2^" << i + 1 << " = " << powerOfTwo << std::endl; //Prints 2^ then i + 1 equals powerOfTwo which is *= 2
 	}
+	
+	//---------------------------------------------------------
+
+
+	//While Loop
+
+	//Count the numbner of steps Collatz sequence takes to reach 1 
+
+	//Variables 
+	int n, step, nsave; 
+
+	n = 10;
+	step = 0;
+	nsave = n;
+
+	std::cout << "\nWhile loop\n--------\n" << n;
+
+	while (n > 1) // condition 
+	{
+		if (n % 2 == 0) //if n remainder 2 = 0; 
+			n /= 2; //then print n /=2 
+
+		else
+			n = 3 * n + 1; // else print 3 * whatever n is + 1;
+
+		step++; //Increment step from 0 - 1 on first loop then by 1 each time until condition is met 
+		std::cout << " -> " << n;
+
+	}
+	std::cout << "\n\nThe Collatz sequence starting at " << nsave // prints text + current
+			  << "took " << step << " steps to reach 1. " << std::endl;
+
+
+
+
+
+
 
 	return 0;
 

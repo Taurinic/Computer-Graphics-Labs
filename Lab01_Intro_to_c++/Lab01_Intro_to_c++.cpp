@@ -13,11 +13,19 @@ public:
 
     // Method to output car details
     void outputDetails();
+    void accelerate(const float);
 };
 
 // Class Methods Implementation
 void Car::outputDetails() {
     std::cout << "\nMake: " << make << "\nModel: " << model << "\nYear: " << year << std::endl;
+}
+
+//Accelerate method 
+void Car::accelerate(const float increment)
+{
+    speed = +increment;
+    std::cout << "\nThe car has accelerated to " << speed << "mph." << std::endl;
 }
 
 // Function Example: Power Calculation -------------------------
@@ -133,6 +141,9 @@ int main() {
     std::cout << "\nClasses\n-------" << std::endl;
     delorean.outputDetails();
     ford.outputDetails();
+
+    //Accelerate the delorean 
+    delorean.accelerate(88.0f);
     // ------------------------------------------------------------
 
     return 0;

@@ -58,20 +58,32 @@ int main( void )
 	glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
 
     //Define Vertices
-    const float vertices[] = {
-        //x       y    z 
-       -0.5f,  -0.5f, 0.0f,
-        0.5f,  -0.5f, 0.0f,
-        0.0f,   0.5f, 0.0f
+   static const float vertices[] = {
+        //x       y    z    Triangle 1
+       -0.9f,  -0.5f, 0.0f, 
+       -0.1f,  -0.5f, 0.0f,
+       -0.5f,   0.5f, 0.0f,
+
+        //x     Y     Z     Triangle 2
+       0.1f,  -0.5f, 0.0f,
+       0.9f,  -0.5f, 0.0f,
+       0.5f,   0.5f, 0.0f
+
     };
 
     //Define vertex colours
-    const float colours[] = {
+    static const float colours[] = {
         
-      // R     G     B
+      // R     G     B        //Triangle 1 (Red)
         1.0f, 0.0f, 0.0f,
-        0.0f, 1.0f, 0.0f,
-        0.0f, 0.0f, 1.0f
+        1.0f, 0.0f, 0.0f,
+        1.0f, 0.0f, 0.0f,
+
+         0.0f, 0.0f, 1.0f,    // triangle 2 (blue)
+         0.0f, 0.0f, 1.0f,
+         0.0f, 0.0f, 1.0f,
+
+
     };
 
     //create colour buffer 
@@ -123,13 +135,19 @@ int main( void )
                               0,                     //stride
                               (void*)0);             //offset 
 
+
         //Send the colour buffer to the shaders 
         glEnableVertexAttribArray(1);
         glBindBuffer(GL_ARRAY_BUFFER, colourBuffer);
-        glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, (void*)0);
+        glVertexAttribPointer(1,                    //Attribute 
+                              3,                    //Size 
+                              GL_FLOAT,             //Type  
+                              GL_FALSE,             //Normalise?
+                              0,                    //stride 
+                              (void*)0);            //offset
 
         //Draw Triangle
-        glDrawArrays(GL_TRIANGLES, 0, 3);
+        glDrawArrays(GL_TRIANGLES, 0, sizeof(vertices) / (3* sizeof(float)));
         glDisableVertexAttribArray(0);
         
 		// Swap buffers

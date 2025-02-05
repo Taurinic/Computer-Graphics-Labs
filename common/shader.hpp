@@ -11,6 +11,8 @@ unsigned int LoadShaders(const char *vertex_file_path,
                          const char *fragment_file_path)
 {
 
+
+
     // Create the shaders
     unsigned int VertexShaderID   = glCreateShader(GL_VERTEX_SHADER);
     unsigned int FragmentShaderID = glCreateShader(GL_FRAGMENT_SHADER);

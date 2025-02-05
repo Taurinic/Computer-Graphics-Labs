@@ -1,10 +1,18 @@
 #version 330 core
 
 layout(location = 0) in vec3 position;
+layout(location = 1) in vec3 colour;
 
-void main() {
+out vec3 fragmentColour;
 
-//Output vertex position 
+void main() 
+{
+
+	//Output vertex position 
 	gl_Position = vec4(position, 1.0);
+
+	//Output Vertex Colour
+	fragmentColour = colour;
+
 
 }

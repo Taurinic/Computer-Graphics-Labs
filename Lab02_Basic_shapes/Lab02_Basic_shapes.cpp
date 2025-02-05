@@ -74,6 +74,13 @@ int main( void )
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
 
+    //Complire shader program 
+    unsigned int shaderID = LoadShaders("vertexShader.glsl"," fragmentShader.glsl");
+
+    //Use the shader program 
+    glUseProgram(shaderID);
+
+
 
 	// Ensure we can capture keyboard inputs
 	glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);

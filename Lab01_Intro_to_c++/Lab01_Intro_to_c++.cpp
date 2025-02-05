@@ -6,14 +6,24 @@ float pi = 3.1415927f;
 // Class OOP ----------------------------------------------------
 class Car {
 public:
+ 
     std::string make;
     std::string model;
     int year;
     float speed = 0.0f;
 
+    //Constructor 
+    Car();
+
+    //Constructor with specified attributes 
+    Car(const std::string, const std::string, const int);
+
+   
+
     // Method to output car details
     void outputDetails();
     void accelerate(const float);
+   
 };
 
 // Class Methods Implementation
@@ -26,6 +36,15 @@ void Car::accelerate(const float increment)
 {
     speed = +increment;
     std::cout << "\nThe car has accelerated to " << speed << "mph." << std::endl;
+}
+
+//Car Constructor define
+Car::Car(const std::string makeInput, const std::string modelInput, const int yearInput) 
+{
+    make = makeInput;
+    model = modelInput;
+    year = yearInput;
+    std::cout << "\nCar Object created" << std::endl;
 }
 
 // Function Example: Power Calculation -------------------------
@@ -125,22 +144,13 @@ int main() {
     // ------------------------------------------------------------
 
     // Define and use Car class --------------------------------
-    
-    //Delorean
-    Car delorean;
-    delorean.make = "Delorean";
-    delorean.model = "DMC-12";
-    delorean.year = 1981;
-    
-    //Ford
-    Car ford; 
-    ford.make = "Ford";
-    ford.model = "Fiesta";
-    ford.year = 2020;
-
     std::cout << "\nClasses\n-------" << std::endl;
+    //Delorean
+    Car delorean("Delorean", "DMC-12", 1982);
+
+    //Print Car
     delorean.outputDetails();
-    ford.outputDetails();
+
 
     //Accelerate the delorean 
     delorean.accelerate(88.0f);

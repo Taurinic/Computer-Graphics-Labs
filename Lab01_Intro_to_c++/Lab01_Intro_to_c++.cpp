@@ -19,12 +19,20 @@ public:
     Car(const std::string, const std::string, const int);
 
    
+    //static memeber function 
+    static float mph2kph(const float);
+
 
     // Method to output car details
     void outputDetails();
     void accelerate(const float);
    
 };
+
+float Car::mph2kph(const float speed)
+{
+    return speed * 1.60934f; //Turns mph into kph
+}
 
 // Class Methods Implementation
 void Car::outputDetails() {
@@ -154,7 +162,14 @@ int main() {
 
     //Accelerate the delorean 
     delorean.accelerate(88.0f);
+
+
+    //Convert speed from mph to kph 
+    std::cout << "\n" << 88 << "mph is equivalent to " << Car::mph2kph(88.0f) << "kph." << std::endl;
     // ------------------------------------------------------------
 
     return 0;
+
+
 }
+ 

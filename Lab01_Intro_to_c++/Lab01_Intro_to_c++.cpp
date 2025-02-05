@@ -1,5 +1,6 @@
 #include <iostream> 
 #include "Car.hpp"
+#include "Student.hpp"
 
 // Global Variables
 float pi = 3.1415927f;
@@ -108,6 +109,13 @@ int main() {
 
     //Print Car
     delorean.outputDetails();
+
+    //print student 
+    std::cout << "\n StudentDetialsExercise\n----------";
+    Student ellie("Ellie", "Williams", "Computer Science" , 12345678, 5, 12);
+
+    ellie.printStudentDetails();
+
 
 
     //Accelerate the delorean 

@@ -117,13 +117,22 @@ int main() {
     // ------------------------------------------------------------
 
     // Define and use Car class --------------------------------
+    
+    //Delorean
     Car delorean;
     delorean.make = "Delorean";
     delorean.model = "DMC-12";
     delorean.year = 1981;
+    
+    //Ford
+    Car ford; 
+    ford.make = "Ford";
+    ford.model = "Fiesta";
+    ford.year = 2020;
 
     std::cout << "\nClasses\n-------" << std::endl;
     delorean.outputDetails();
+    ford.outputDetails();
     // ------------------------------------------------------------
 
     return 0;

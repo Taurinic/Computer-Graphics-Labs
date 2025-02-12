@@ -57,19 +57,25 @@ int main( void )
 	glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
     
     // Define vertices
-    const float vertices[] = {
+    static const float vertices[] = {
         // x     y     z
         -0.5f, -0.5f, 0.0f,
          0.5f, -0.5f, 0.0f,
-         0.0f,  0.5f, 0.0f
+         0.5f,  0.5f, 0.0f,
+        -0.5f, -0.5f, 0.0f,
+         0.5f,  0.5f, 0.0f,
+        -0.5f,  0.5f, 0.0f
     };
 
     //Define texture coordinates 
-    const float uv[] = {
-        // u   v 
-        0.0f, 0.0f,
-        1.0f, 0.0f,
-        0.5f, 1.0f
+    static const float uv[] = {
+        // u    v
+        0.0f,  0.0f,    // triangle 1
+        1.0f,  0.0f,
+        1.0f,  1.0f,
+        0.0f,  0.0f,    // triangle 2
+        1.0f,  1.0f,
+        0.0f,  1.0f
     };
 
     //create texture buffer 

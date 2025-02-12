@@ -179,7 +179,6 @@ int main( void )
     glBindVertexArray(VAO);
 
     
-    
     // Use the shader program
     glUseProgram(shaderID);
     

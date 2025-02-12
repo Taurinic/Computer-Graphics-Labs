@@ -1,6 +1,8 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include <common/stb_image.hpp>
 
+
+
 unsigned int loadTexture(const char *path)
 {
     // Create and bind texture
@@ -8,10 +10,12 @@ unsigned int loadTexture(const char *path)
     glGenTextures(1, &textureID);
     glBindTexture(GL_TEXTURE_2D, textureID);
     
+
+
     // Load texture image from file
     int width, height, nChannels;
-    stbi_set_flip_vertically_on_load(true);
-    unsigned char *data = stbi_load(path, &width, &height, &nChannels, 0);
+   stbi_set_flip_vertically_on_load(true);
+   unsigned char *data = stbi_load(path, &width, &height, &nChannels, 0);
     
     if (data)
     {

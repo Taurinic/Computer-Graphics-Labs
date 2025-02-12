@@ -178,7 +178,7 @@ int main( void )
     glBindTexture(GL_TEXTURE_2D, texture);
     glBindVertexArray(VAO);
 
-
+    
     
     // Use the shader program
     glUseProgram(shaderID);

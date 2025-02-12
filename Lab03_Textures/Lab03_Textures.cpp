@@ -93,9 +93,9 @@ int main( void )
     static const float uv[] = {
         // u    v      index
         0.0f,  0.0f,  // 0
-        1.0f,  0.0f,  // 1
-        1.0f,  1.0f,  // 2
-        0.0f,  1.0f,  // 3
+        2.0f,  0.0f,  // 1
+        2.0f,  2.0f,  // 2
+        0.0f,  2.0f,  // 3
     };
 
     // Define indices
@@ -103,9 +103,10 @@ int main( void )
         0, 1, 2,  // lower-right triangle
         0, 2, 3   // upper-left triangle
 
-        //draw the triagnles 
-        glDrawElements(GL_TRIANGLE)
+
+       
     };
+
 
 
 
@@ -122,10 +123,6 @@ int main( void )
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 
 
-
-
-
-
   
     // Create the Vertex Array Object (VAO)
     unsigned int VAO;
@@ -137,7 +134,6 @@ int main( void )
     glGenBuffers(1, &VBO);
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-
 
     
     // Compile shader program
@@ -151,7 +147,7 @@ int main( void )
 
 
     //Load image from file 
-    const char *path = "../assets/crate.jpg";
+    const char *path = "../assets/mario.png";
     int width, height, nChannels;
     stbi_set_flip_vertically_on_load(true);
     unsigned char* data = stbi_load(path, &width, &height, &nChannels, 0);
@@ -163,8 +159,13 @@ int main( void )
         std::cout << "Texture not laoded " << std::endl;
 
     //Specify 2D texture 
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
     glGenerateMipmap(GL_TEXTURE_2D);
+
+    //Set texture wrapping options 
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_MIRRORED_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_MIRRORED_REPEAT);
+
 
 
     //Free up image from memory 
@@ -175,7 +176,6 @@ int main( void )
     glBindVertexArray(VAO);
 
 
-        
     
     // Use the shader program
     glUseProgram(shaderID);
@@ -200,11 +200,13 @@ int main( void )
         glBindBuffer(GL_ARRAY_BUFFER, uvBuffer);
         glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 0, (void*)0);
 
-
         
-        // Draw the triangle
-        glDrawArrays(GL_TRIANGLES, 0, sizeof(vertices) / sizeof(float));
+        // Draw the triangles
+        glDrawElements(GL_TRIANGLES, sizeof(indices) / sizeof(unsigned int), GL_UNSIGNED_INT, 0);
+
         glDisableVertexAttribArray(0);
+        glDisableVertexAttribArray(1);
+       
         
 		// Swap buffers
 		glfwSwapBuffers(window);

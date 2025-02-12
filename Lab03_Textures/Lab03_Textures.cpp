@@ -147,7 +147,7 @@ int main( void )
 
 
     //Load image from file 
-    const char *path = "../assets/mario.png";
+    const char *path = "../assets/mario_small.png";
     int width, height, nChannels;
     stbi_set_flip_vertically_on_load(true);
     unsigned char* data = stbi_load(path, &width, &height, &nChannels, 0);
@@ -165,6 +165,9 @@ int main( void )
     //Set texture wrapping options 
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_MIRRORED_REPEAT);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_MIRRORED_REPEAT);
+
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST); 
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 
 
 

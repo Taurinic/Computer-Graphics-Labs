@@ -78,6 +78,34 @@ int main( void )
     // Compile shader program
     unsigned int shaderID;
     shaderID = LoadShaders("vertexShader.glsl", "fragmentShader.glsl");
+
+    //Create and bind texture 
+    unsigned int texture;
+    glGenTextures(1, &texture);
+    glBindTexture(GL_TEXTURE_2D, texture);
+
+
+    //Load image from file 
+    const char *path = "../assets/crate.jpg";
+    int width, height, nChannels;
+    stbi_set_flip_vertically_on_load(true);
+    unsigned char* data = stbi_load(path, &width, &height, &nChannels, 0);
+
+
+    if (data)
+        std::cout << "Texture loaded. " << std::endl;
+    else
+        std::cout << "Texture not laoded " << std::endl;
+
+    //Specify 2D texture 
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+    glGenerateMipmap(GL_TEXTURE_2D);
+
+
+    //Free up image from memory 
+    stbi_image_free(data);
+
+        
     
     // Use the shader program
     glUseProgram(shaderID);

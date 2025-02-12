@@ -63,6 +63,22 @@ int main( void )
          0.5f, -0.5f, 0.0f,
          0.0f,  0.5f, 0.0f
     };
+
+    //Define texture coordinates 
+    const float uv[] = {
+        // u   v 
+        0.0f, 0.0f,
+        1.0f, 0.0f,
+        0.5f, 1.0f
+    };
+
+    //create texture buffer 
+    unsigned int uvBuffer;
+    glGenBuffers(1, &uvBuffer);
+    glBindBuffer(GL_ARRAY_BUFFER, uvBuffer);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(uv), uv, GL_STATIC_DRAW);
+
+
   
     // Create the Vertex Array Object (VAO)
     unsigned int VAO;
@@ -74,6 +90,8 @@ int main( void )
     glGenBuffers(1, &VBO);
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+
+
     
     // Compile shader program
     unsigned int shaderID;
@@ -105,6 +123,11 @@ int main( void )
     //Free up image from memory 
     stbi_image_free(data);
 
+    //Bind texture to the VAO
+    glBindTexture(GL_TEXTURE_2D, texture);
+    glBindVertexArray(VAO);
+
+
         
     
     // Use the shader program
@@ -124,6 +147,13 @@ int main( void )
         glEnableVertexAttribArray(0);
         glBindBuffer(GL_ARRAY_BUFFER, VBO);
         glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, (void*)0);
+
+        //Send the UV buffer to the shaders
+        glEnableVertexAttribArray(1);
+        glBindBuffer(GL_ARRAY_BUFFER, uvBuffer);
+        glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 0, (void*));
+
+
         
         // Draw the triangle
         glDrawArrays(GL_TRIANGLES, 0, sizeof(vertices) / sizeof(float));

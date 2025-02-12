@@ -55,7 +55,7 @@ int main( void )
     
 	// Ensure we can capture keyboard inputs
 	glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
-    
+    /*
     // Define vertices
     static const float vertices[] = {
         // x     y     z
@@ -77,12 +77,53 @@ int main( void )
         1.0f,  1.0f,
         0.0f,  1.0f
     };
+    */
+
+
+    // Define vertex positions
+    static const float vertices[] = {
+        // x     y     z      index
+        -0.5f, -0.5f, 0.0f,  // 0       3 -- 2
+         0.5f, -0.5f, 0.0f,  // 1       |  / |  
+         0.5f,  0.5f, 0.0f,  // 2       | /  |
+        -0.5f,  0.5f, 0.0f   // 3       0 -- 1
+    };
+
+    // Define texture coordinates
+    static const float uv[] = {
+        // u    v      index
+        0.0f,  0.0f,  // 0
+        1.0f,  0.0f,  // 1
+        1.0f,  1.0f,  // 2
+        0.0f,  1.0f,  // 3
+    };
+
+    // Define indices
+    static const unsigned int indices[] = {
+        0, 1, 2,  // lower-right triangle
+        0, 2, 3   // upper-left triangle
+
+        //draw the triagnles 
+        glDrawElements(GL_TRIANGLE)
+    };
+
+
 
     //create texture buffer 
     unsigned int uvBuffer;
     glGenBuffers(1, &uvBuffer);
     glBindBuffer(GL_ARRAY_BUFFER, uvBuffer);
     glBufferData(GL_ARRAY_BUFFER, sizeof(uv), uv, GL_STATIC_DRAW);
+
+    //create element buffer object(EBO)
+    unsigned int EBO;
+    glGenBuffers(1, &EBO);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+
+
+
+
 
 
   

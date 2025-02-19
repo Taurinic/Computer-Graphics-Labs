@@ -96,6 +96,13 @@ int main() {
 
 
 
+    //The identity matrix
+    printf("\nThe identity matrix\n");
+    glm::mat4 I;
+    std::cout << "I  = " << glm::transpose(I) << "\n" << std::endl;
+
+
+
     return 0;
 }
 

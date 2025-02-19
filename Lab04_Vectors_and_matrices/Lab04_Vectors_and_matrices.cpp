@@ -80,7 +80,12 @@ int main() {
     
 
 
-    //Column-major order 
+    //Arithmetic operations on matrices 
+    printf("\nArithmetic operations on matrices:\n");
+    std::cout << "A + B = " << glm::transpose(A + B) << "\n" << std::endl;
+    std::cout << "A - B = " << glm::transpose(A - B) << "\n" << std::endl;
+    std::cout << "2A    = " << glm::transpose(2.0f * A) << "\n" << std::endl;
+    std::cout << "A / 3 = " << glm::transpose(A / 3.0f) << "\n" << std::endl;
 
 
 

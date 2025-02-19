@@ -64,6 +64,20 @@ int main() {
     printf("a . (a x b) = %0.3f\n", glm::dot(a, glm::cross(a, b)));
     printf("b . (a x b) = %0.3f\n", glm::dot(b, glm::cross(a, b)));
 
+    //Matrices 
+    printf("\nMatrices\n");
+
+    //Defining matrices 
+    glm::mat2 A, B;
+    A[0][0] = 1.0f, A[0][1] = 2.0f;
+    A[1][0] = 3.0f, A[1][1] = 4.0f;
+
+    B = glm::mat2(5.0f, 6.0f, 7.0f, 8.0f);
+
+    printf("\nDefining matrices: \n");
+    std::cout << "A = " << A << "\n" << std::endl;
+    std::cout << "B = " << B << "\n" << std::endl;
+
 
     return 0;
 }

@@ -77,6 +77,11 @@ int main() {
     printf("\nDefining matrices: \n");
     std::cout << "A = " << A << "\n" << std::endl;
     std::cout << "B = " << B << "\n" << std::endl;
+    
+
+
+    //Column-major order 
+
 
 
     return 0;

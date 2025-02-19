@@ -75,8 +75,8 @@ int main() {
     B = glm::mat2(5.0f, 6.0f, 7.0f, 8.0f);
 
     printf("\nDefining matrices: \n");
-    std::cout << "A = " << A << "\n" << std::endl;
-    std::cout << "B = " << B << "\n" << std::endl;
+    std::cout << "A = " << glm::transpose(A) << "\n" << std::endl;
+    std::cout << "B = " <<glm::transpose(B) << "\n" << std::endl;
     
 
 

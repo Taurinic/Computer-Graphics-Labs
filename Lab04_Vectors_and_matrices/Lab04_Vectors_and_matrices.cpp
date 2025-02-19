@@ -24,7 +24,21 @@ int main() {
     //Vector length
     printf("\nVector length: \n");
     printf("length(a) = %0.3f\n", glm::length(a));
-    printf("length(a) = %0.3f\n", glm::length(b));
+    printf("length(b) = %0.3f\n", glm::length(b));
+
+    //Normalising vectors 
+    glm::vec3 aHat, bHat;
+    aHat = glm::normalize(a);
+    bHat = b / glm::length(b);
+
+
+    printf("\nNormalising vectors: \n");
+    std::cout << "aHat = " << aHat << std::endl;
+    std::cout << "bHat = " << bHat << std::endl;
+
+    printf("length(aHat) = %0.3f\n", glm::length(aHat));
+    printf("length(bHat) = %0.3f\n", glm::length(bHat));
+
 
 
     return 0;

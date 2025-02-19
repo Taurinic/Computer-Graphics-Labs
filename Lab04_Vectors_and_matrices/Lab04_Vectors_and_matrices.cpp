@@ -54,9 +54,15 @@ int main() {
     printf("\nElement-wise multiplication\n");
     std::cout << "a * b = " << a * b << std::endl;
 
-    //Dot and Cross products
+    //Dot and Cross products (Calculate the angle between vectors) 
     printf("\nDot and cross products\n");
     printf("a . b = %0.3f\n", glm::dot(a, b));
+
+    //The Cross product 
+    printf("\nThe Cross product\n");
+    std::cout << "a x b = " << glm::cross(a, b) << std::endl;
+    printf("a . (a x b) = %0.3f\n", glm::dot(a, glm::cross(a, b)));
+    printf("b . (a x b) = %0.3f\n", glm::dot(b, glm::cross(a, b)));
 
 
     return 0;

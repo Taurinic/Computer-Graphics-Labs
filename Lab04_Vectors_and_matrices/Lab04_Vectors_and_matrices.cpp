@@ -143,9 +143,11 @@ int main() {
     //3The three matrices  A, B and C are defined as
     //A = (-1  3)
     //    (2  -5)
+    
     //B = (0  2)
     //    (7  1)
-    //C = (3  2)
+    
+    //C = (3    2)
     //    (-3  -4)
 
 

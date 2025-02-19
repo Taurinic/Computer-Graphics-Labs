@@ -24,7 +24,7 @@ int main() {
     //Vector length
     printf("\nVector length: \n");
     printf("length(a) = %0.3f\n", glm::length(a));
-    printf("length(b) = %0.100f\n", glm::length(b));
+    printf("length(b) = %0.3f\n", glm::length(b));
 
     //Normalising vectors 
     glm::vec3 aHat, bHat;
@@ -43,6 +43,11 @@ int main() {
     printf("\nArithmetic operations on vectors:\n");
     std::cout << "a + b = " << a + b << std::endl;
     std::cout << "a - b = " << a - b << std::endl;
+
+    //Mulitplication and division 
+    printf("\n Mulitplication and Division\n");
+    std::cout << "2a    = " << 2.0f * a << std::endl;
+    std::cout << "b / 3 = " << b / 3.0f << std::endl;
 
 
 

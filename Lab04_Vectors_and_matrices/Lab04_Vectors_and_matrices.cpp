@@ -113,6 +113,11 @@ int main() {
 
 
 
+    //Exercise 
+    //(a)The vector P  that points from A  to B;
+    //ANSWER:   (5,6,1)
+
+
     return 0;
 }
 

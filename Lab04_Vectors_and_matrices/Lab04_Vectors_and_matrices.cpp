@@ -89,6 +89,13 @@ int main() {
 
 
 
+    //Matrix Mulitplication 
+    printf("\nMatrix Mulitplication\n");
+    std::cout << "A * B  = " << glm::transpose(B * A) << "\n" << std::endl;
+    std::cout << "B * A  = " << glm::transpose(A * B) << "\n" << std::endl;
+
+
+
     return 0;
 }
 

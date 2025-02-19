@@ -21,8 +21,10 @@ int main() {
     std::cout << "b = " << b << std::endl;
 
 
-
-
+    //Vector length
+    printf("\nVector length: \n");
+    printf("length(a) = %0.3f\n", glm::length(a));
+    printf("length(a) = %0.3f\n", glm::length(b));
 
 
     return 0;

@@ -54,6 +54,10 @@ int main() {
     printf("\nElement-wise multiplication\n");
     std::cout << "a * b = " << a * b << std::endl;
 
+    //Dot and Cross products
+    printf("\nDot and cross products\n");
+    printf("a . b = %0.3f\n", glm::dot(a, b));
+
 
     return 0;
 }

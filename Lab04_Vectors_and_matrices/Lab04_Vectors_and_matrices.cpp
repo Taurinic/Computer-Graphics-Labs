@@ -114,8 +114,39 @@ int main() {
 
 
     //Exercise 
+    // A = (5,1,3) B= (10,7,4) C= (0,5,-3)
+    // 
     //(a)The vector P  that points from A  to B;
     //ANSWER:   (5,6,1)
+   
+    //(b)The vector q that points from B to C;
+    //ANSWER:   (-10, -2, -7)
+
+    //(c) The vector that r points from C to A
+    //ANSWER:   (5,6,0)
+        //right (5, -4, 0)
+
+    //(d) The length of the vector p
+    //ANSWER:   ()
+    
+    //(e)  A unit vector that points in the direction of the vector q
+    //ANSWER:   ()
+    
+    
+    //(f) The dot product p . q
+    //ANSWER:   ()
+
+     //(g) The cross product q x r
+    //ANSWER:   ()
+
+    //2 Repeat exercise 1 using C++ and the glm library.
+    //3The three matrices  A, B and C are defined as
+    //A = (-1  3)
+    //    (2  -5)
+    //B = (0  2)
+    //    (7  1)
+    //C = (3  2)
+    //    (-3  -4)
 
 
     return 0;

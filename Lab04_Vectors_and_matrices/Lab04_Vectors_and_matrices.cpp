@@ -45,10 +45,14 @@ int main() {
     std::cout << "a - b = " << a - b << std::endl;
 
     //Mulitplication and division 
-    printf("\n Mulitplication and Division\n");
+    printf("\nMulitplication and Division\n");
     std::cout << "2a    = " << 2.0f * a << std::endl;
     std::cout << "b / 3 = " << b / 3.0f << std::endl;
 
+
+    //Element-wise multiplication 
+    printf("\nElement-wise multiplication\n");
+    std::cout << "a * b = " << a * b << std::endl;
 
 
     return 0;

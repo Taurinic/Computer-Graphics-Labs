@@ -145,7 +145,7 @@ int main( void )
        // translate[3][0] = 0.4f, translate[3][1] = 0.3f, translate[3][2] = 0.0f;
        //New defin translation matrix 
        //                                                x     y     z
-      glm::mat4 translate = Maths::translate(glm::vec3(0.4f, 0.9f, 0.0f));
+      //glm::mat4 translate = Maths::translate(glm::vec3(0.4f, 0.9f, 0.0f));
 
       //Define scaling matrix (Old)
      // glm::mat4 scale;
@@ -154,7 +154,7 @@ int main( void )
 
 
       //Define scaling matrix (new)
-      glm::mat4 scale = Maths::scale(glm::vec3(0.4f, 0.3f, 1.0f));
+      //glm::mat4 scale = Maths::scale(glm::vec3(0.4f, 0.3f, 1.0f));
 
       //Define rotation matrix 
       // glm::mat4 rotate;
@@ -164,13 +164,18 @@ int main( void )
     
 
       //rotation 
-      float angle = Maths::radians(45.0f);
-      glm::mat4 rotate = Maths::rotate(angle, glm::vec3(0.0f, 0.0f, 1.0f));
+      //float angle = Maths::radians(45.0f);
+      //glm::mat4 rotate = Maths::rotate(angle, glm::vec3(0.0f, 0.0f, 1.0f));
 
     
+        //Animate rectangle
+        float angle = Maths::radians(glfwGetTime() * 360.0f / 3.0f);
+        glm::mat4 translate = Maths::translate(glm::vec3(0.4f, 0.3f, 0.0f));
+        glm::mat4 scale = Maths::scale(glm::vec3(0.4f, 0.3f, 0.0f));
+        glm::mat4 rotate = Maths::rotate(angle, glm::vec3(0.0f, 0.0f, 1.0f));
 
       //Send the transformation matrix to the shader 
-      glm::mat4 transformation = translate * rotate * scale;
+        glm::mat4 transformation = rotate * translate * scale;
       unsigned int transformationID;
       transformationID = glGetUniformLocation(shaderID, "transformation");
       glUniformMatrix4fv(transformationID, 1, GL_FALSE, &transformation[0][0]);

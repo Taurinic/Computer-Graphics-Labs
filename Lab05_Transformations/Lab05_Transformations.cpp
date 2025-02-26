@@ -162,11 +162,15 @@ int main( void )
       //rotate[0][0] = cos(angle), rotate[0][1] = sin(angle);
       //rotate[1][0] = -sin(angle), rotate[1][1] = cos(angle);
     
+
+      //rotation 
       float angle = Maths::radians(45.0f);
       glm::mat4 rotate = Maths::rotate(angle, glm::vec3(0.0f, 0.0f, 1.0f));
 
+    
+
       //Send the transformation matrix to the shader 
-      glm::mat4 transformation = rotate;
+      glm::mat4 transformation = translate * rotate * scale;
       unsigned int transformationID;
       transformationID = glGetUniformLocation(shaderID, "transformation");
       glUniformMatrix4fv(transformationID, 1, GL_FALSE, &transformation[0][0]);

@@ -154,13 +154,18 @@ int main( void )
 
 
       //Define scaling matrix (new)
-      glm::mat4 scale = Maths::scale(glm::vec3(1.4f, 0.3f, 1.0f));
+      glm::mat4 scale = Maths::scale(glm::vec3(0.4f, 0.3f, 1.0f));
 
+      //Define rotation matrix 
+      glm::mat4 rotate;
+      float angle = 45.0f * 3.1416f / 180.0f;
+      rotate[0][0] = cos(angle), rotate[0][1] = sin(angle);
+      rotate[1][0] = -sin(angle), rotate[1][1] = cos(angle);
     
 
 
       //Send the transformation matrix to the shader 
-      glm::mat4 transformation = scale;
+      glm::mat4 transformation = rotate;
       unsigned int transformationID;
       transformationID = glGetUniformLocation(shaderID, "transformation");
       glUniformMatrix4fv(transformationID, 1, GL_FALSE, &transformation[0][0]);

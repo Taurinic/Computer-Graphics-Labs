@@ -157,12 +157,13 @@ int main( void )
       glm::mat4 scale = Maths::scale(glm::vec3(0.4f, 0.3f, 1.0f));
 
       //Define rotation matrix 
-      glm::mat4 rotate;
-      float angle = 45.0f * 3.1416f / 180.0f;
-      rotate[0][0] = cos(angle), rotate[0][1] = sin(angle);
-      rotate[1][0] = -sin(angle), rotate[1][1] = cos(angle);
+      // glm::mat4 rotate;
+      //float angle = 45.0f * 3.1416f / 180.0f;
+      //rotate[0][0] = cos(angle), rotate[0][1] = sin(angle);
+      //rotate[1][0] = -sin(angle), rotate[1][1] = cos(angle);
     
-
+      float angle = Maths::radians(45.0f);
+      glm::mat4 rotate = Maths::rotate(angle, glm::vec3(0.0f, 0.0f, 1.0f));
 
       //Send the transformation matrix to the shader 
       glm::mat4 transformation = rotate;

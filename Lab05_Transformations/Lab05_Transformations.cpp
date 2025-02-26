@@ -140,15 +140,27 @@ int main( void )
         glBindBuffer(GL_ARRAY_BUFFER, uvBuffer);
         glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 0, (void*)0);
         
-        //Define translation matrix 
+        //Old Define translation matrix 
        // glm::mat4 translate;
        // translate[3][0] = 0.4f, translate[3][1] = 0.3f, translate[3][2] = 0.0f;
-        //                                                x     y     z
-        glm::mat4 translate = Maths::translate(glm::vec3(0.4f, 0.9f, 0.0f));
+       //New defin translation matrix 
+       //                                                x     y     z
+      glm::mat4 translate = Maths::translate(glm::vec3(0.4f, 0.9f, 0.0f));
+
+      //Define scaling matrix (Old)
+     // glm::mat4 scale;
+     // scale[0][0] = 0.4f, scale[1][1] = 0.3f, scale[2][2] = 1.0f;
+     // [0][0], [1][1], [2][2] Refer to the elements of the main diagonal of a glm::mat4 object
+
+
+      //Define scaling matrix (new)
+      glm::mat4 scale = Maths::scale(glm::vec3(1.4f, 0.3f, 1.0f));
+
+    
 
 
       //Send the transformation matrix to the shader 
-      glm::mat4 transformation = translate;
+      glm::mat4 transformation = scale;
       unsigned int transformationID;
       transformationID = glGetUniformLocation(shaderID, "transformation");
       glUniformMatrix4fv(transformationID, 1, GL_FALSE, &transformation[0][0]);

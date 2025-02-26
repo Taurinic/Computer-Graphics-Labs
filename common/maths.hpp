@@ -12,6 +12,9 @@ class Maths {
 public:
 
 	//transformation matrices 
-	static glm::mat4 translate(const glm::vec3& v);
+	static glm::mat4 translate(const glm::vec3 &v);
+
+	//Calculate scaling matrix 
+	static glm::mat4 scale(const glm::vec3& v);
 
 };

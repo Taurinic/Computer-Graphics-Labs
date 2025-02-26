@@ -141,15 +141,19 @@ int main( void )
         glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 0, (void*)0);
         
         //Define translation matrix 
-        glm::mat4 translate;
-        translate[3][0] = 0.4f, translate[3][1] = 0.3f, translate[3][2] = 0.0f;
+       // glm::mat4 translate;
+       // translate[3][0] = 0.4f, translate[3][1] = 0.3f, translate[3][2] = 0.0f;
+        //                                                x     y     z
+        glm::mat4 translate = Maths::translate(glm::vec3(0.4f, 0.9f, 0.0f));
 
-        //Send the transformation matrix to the shader 
-        glm::mat4 transformation = translate;
-        unsigned int transformationID;
-        transformationID = glGetUniformLocation(shaderID, "transformation");
-        glUniformMatrix4fv(transformationID, 1, GL_FALSE, &transformation[0][0]);
 
+      //Send the transformation matrix to the shader 
+      glm::mat4 transformation = translate;
+      unsigned int transformationID;
+      transformationID = glGetUniformLocation(shaderID, "transformation");
+      glUniformMatrix4fv(transformationID, 1, GL_FALSE, &transformation[0][0]);
+
+      
 
         // Draw the triangles
         glDrawElements(GL_TRIANGLES, sizeof(indices) / sizeof(unsigned int),

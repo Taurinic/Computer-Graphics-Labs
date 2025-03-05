@@ -55,6 +55,9 @@ int main( void )
     // -------------------------------------------------------------------------
     // End of window creation
     // =========================================================================
+
+    //Enable depth test 
+    glEnable(GL_DEPTH_TEST);
     
     // Ensure we can capture keyboard inputs
     glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
@@ -207,7 +210,7 @@ int main( void )
         
         // Clear the window
         glClearColor(0.2f, 0.2f, 0.2f, 0.0f);
-        glClear(GL_COLOR_BUFFER_BIT);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         // Send the VBO to the GPU
         glEnableVertexAttribArray(0);
@@ -250,6 +253,8 @@ int main( void )
         glfwPollEvents();
     }
     
+
+
     // Cleanup
     glDeleteVertexArrays(1, &VAO);
     glDeleteBuffers(1, &VBO);

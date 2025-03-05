@@ -233,6 +233,10 @@ int main( void )
 
         //Calculate the orthographic projection matrix
         glm::mat4 projection = glm::ortho(-2.0f, 2.0f, -2.0f, 2.0f, 0.0f, 10.0f);
+
+        //Send MVP matrix to the vertex shader
+        glm::mat4 MVP = projection * view * model;
+        glUniformMatrix4fv(glGetUniformLocation(shaderID, "MVP"), 1, GL_FALSE, &MVP[0][0]);
         
         // Draw the triangles
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);

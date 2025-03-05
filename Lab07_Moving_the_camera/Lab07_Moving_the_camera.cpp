@@ -309,4 +309,17 @@ void keyboardInput(GLFWwindow *window)
 {
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
         glfwSetWindowShouldClose(window, true);
+
+    // Move the camera using WSAD keys
+    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+        camera.eye += camera.front;
+
+    if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+        camera.eye -= camera.front;
+
+    if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+        camera.eye -= camera.right;
+
+    if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+        camera.eye += camera.right;
 }

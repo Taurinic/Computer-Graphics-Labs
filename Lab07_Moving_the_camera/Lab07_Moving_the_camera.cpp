@@ -24,6 +24,12 @@ struct Object
     std::string name;
 };
 
+
+// Frame timer
+float previousTime = 0.0f;    // time of previous iteration of the loop
+float deltaTime = 0.0f;    // time elapsed since last iteration of the loop
+
+
 int main( void )
 {
     // =========================================================================
@@ -244,6 +250,12 @@ int main( void )
     // Render loop
     while (!glfwWindowShouldClose(window))
     {
+
+        // Update timer
+        float time = glfwGetTime();
+        deltaTime = time - previousTime;
+        previousTime = time;
+
         // Get inputs
         keyboardInput(window);
         
@@ -312,14 +324,14 @@ void keyboardInput(GLFWwindow *window)
 
     // Move the camera using WSAD keys
     if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
-        camera.eye += camera.front;
+        camera.eye += 5.0f * deltaTime * camera.front;
 
     if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
-        camera.eye -= camera.front;
+        camera.eye -= 5.0f * deltaTime * camera.front;
 
     if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
-        camera.eye -= camera.right;
+        camera.eye -= 5.0f * deltaTime * camera.right;
 
     if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
-        camera.eye += camera.right;
+        camera.eye += 5.0f * deltaTime * camera.right;
 }

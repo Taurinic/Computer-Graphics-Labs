@@ -288,7 +288,7 @@ int main( void )
        // glUniformMatrix4fv(glGetUniformLocation(shaderID, "MVP"), 1, GL_FALSE, &MVP[0][0]);
 
         //Calculate view and projection matrices
-        camera.eye = glm::vec3(0.0f, 0.0f, 5.0f);
+        camera.eye = glm::vec3(0.0f, 0.0f, 5.0f); // Fixed Position 
         camera.target = objects[0].position;
         camera.calculateMatrices();
 

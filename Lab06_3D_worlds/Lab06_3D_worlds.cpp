@@ -230,6 +230,9 @@ int main( void )
         glm::mat4 view = glm::lookAt(glm::vec3(1.0f, 1.0f, 1.0f), //Eye
                                      glm::vec3(0.0f, 0.0f, -2.0f), // target
                                      glm::vec3(0.0f, 1.0f, 0.0f)); // World UP
+
+        //Calculate the orthographic projection matrix
+        glm::mat4 projection = glm::ortho(-2.0f, 2.0f, -2.0f, 2.0f, 0.0f, 10.0f);
         
         // Draw the triangles
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);

@@ -225,6 +225,11 @@ int main( void )
         glm::mat4 scale = Maths::scale(glm::vec3(0.5f, 0.5f, 0.5f));
         glm::mat4 rotate = Maths::rotate(angle, glm::vec3(0.0f, 1.0f, 0.0f));
         glm::mat4 model = translate * rotate * scale;
+
+        //Calculate the view matrix
+        glm::mat4 view = glm::lookAt(glm::vec3(1.0f, 1.0f, 1.0f), //Eye
+                                     glm::vec3(0.0f, 0.0f, -2.0f), // target
+                                     glm::vec3(0.0f, 1.0f, 0.0f)); // World UP
         
         // Draw the triangles
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);

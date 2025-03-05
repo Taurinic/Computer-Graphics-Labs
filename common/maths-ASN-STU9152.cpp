@@ -42,5 +42,5 @@ glm::mat4 Maths::rotate(const float& angle, glm::vec3 v)
 	rotate[2][1] = (1 - c) * yz - xs;
 	rotate[2][2] = (1 - c) * z2 + c;
 
-	return rotate;	
+	return rotate;
 }

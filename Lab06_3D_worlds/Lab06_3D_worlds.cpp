@@ -12,6 +12,9 @@
 // Function prototypes
 void keyboardInput(GLFWwindow *window);
 
+//Create Camera Object 
+Camera camera(glm::vec3(1.0f, 1.0f, 1.0f), glm::vec3(0.0f, 0.0f, -2.0f));
+
 int main( void )
 {
     // =========================================================================
@@ -230,18 +233,21 @@ int main( void )
         glm::mat4 model = translate * rotate * scale;
 
         //Calculate the view matrix
-        glm::mat4 view = glm::lookAt(glm::vec3(1.0f, 1.0f, 1.0f), //Eye
-                                     glm::vec3(0.0f, 0.0f, -2.0f), // target
-                                     glm::vec3(0.0f, 1.0f, 0.0f)); // World UP
+       // glm::mat4 view = glm::lookAt(glm::vec3(1.0f, 1.0f, 1.0f), //Eye
+                                   //  glm::vec3(0.0f, 0.0f, -2.0f), // target
+                                   //  glm::vec3(0.0f, 1.0f, 0.0f)); // World UP
 
         //Calculate the orthographic projection matrix
         //glm::mat4 projection = glm::ortho(-2.0f, 2.0f, -2.0f, 2.0f, 0.0f, 10.0f);
 
         //Calculate perspective projection matrix 
-        glm::mat4 projection = glm::perspective(Maths::radians(120.0f), 1024.0f / 768.0f, 0.2f, 10.0f);
+       // glm::mat4 projection = glm::perspective(Maths::radians(120.0f), 1024.0f / 768.0f, 0.2f, 10.0f);
 
-        //Send MVP matrix to the vertex shader
-        glm::mat4 MVP = projection * view * model;
+        //Calculate view and projection matrices 
+        camera.calculateMatrices();
+
+        //Calculate the MVP matrix and Send it to the vertex shader
+        glm::mat4 MVP = camera.projection * camera.view * model;
         glUniformMatrix4fv(glGetUniformLocation(shaderID, "MVP"), 1, GL_FALSE, &MVP[0][0]);
         
         // Draw the triangles

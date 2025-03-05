@@ -235,7 +235,10 @@ int main( void )
                                      glm::vec3(0.0f, 1.0f, 0.0f)); // World UP
 
         //Calculate the orthographic projection matrix
-        glm::mat4 projection = glm::ortho(-2.0f, 2.0f, -2.0f, 2.0f, 0.0f, 10.0f);
+        //glm::mat4 projection = glm::ortho(-2.0f, 2.0f, -2.0f, 2.0f, 0.0f, 10.0f);
+
+        //Calculate perspective projection matrix 
+        glm::mat4 projection = glm::perspective(Maths::radians(120.0f), 1024.0f / 768.0f, 0.2f, 10.0f);
 
         //Send MVP matrix to the vertex shader
         glm::mat4 MVP = projection * view * model;

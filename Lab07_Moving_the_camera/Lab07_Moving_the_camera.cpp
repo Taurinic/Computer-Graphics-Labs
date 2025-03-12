@@ -78,6 +78,9 @@ int main( void )
     
     // Enable depth test
     glEnable(GL_DEPTH_TEST);
+
+    // Enable back face culling
+    glEnable(GL_CULL_FACE);
     
     // Ensure we can capture keyboard inputs
     glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);

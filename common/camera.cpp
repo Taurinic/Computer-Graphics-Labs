@@ -1,15 +1,12 @@
 #include <common/camera.hpp>
 
 
-// Camera Euler angles
-float yaw = Maths::radians(-90.0f);
-float pitch = 0.0f;
-float roll = 0.0f;
-
 Camera::Camera(const glm::vec3 Eye, const glm::vec3 Target)
 {
 	eye = Eye;
 	target = Target;
+
+
 	
 }
 

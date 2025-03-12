@@ -13,6 +13,11 @@ public:
 	float near = 0.2f;
 	float far = 100.0f;
 
+	// Camera Euler angles
+	float yaw = Maths::radians(-90.0f);
+	float pitch = 0.0f;
+	float roll = 0.0f;
+
 	//Camera Vectors 
 	glm::vec3 eye;
 	glm::vec3 target;
@@ -30,4 +35,6 @@ public:
 
 	//Methods
 	void calculateMatrices();
+
+	void calculateCameraVectors();
 };

@@ -1,14 +1,24 @@
 #include <common/camera.hpp>
 
 
+// Camera Euler angles
+float yaw = Maths::radians(-90.0f);
+float pitch = 0.0f;
+float roll = 0.0f;
+
 Camera::Camera(const glm::vec3 Eye, const glm::vec3 Target)
 {
 	eye = Eye;
 	target = Target;
+	
 }
 
 void Camera::calculateMatrices()
 {
+
+	// Calculate camera vectors
+	calculateCameraVectors();
+
 	//Calculate the view matrix 
 	view = glm::lookAt(eye, eye + front, worldUp);
 
@@ -17,3 +27,11 @@ void Camera::calculateMatrices()
 
 
 }
+
+void Camera::calculateCameraVectors()
+{
+	front = glm::vec3(cos(yaw) * cos(pitch), sin(pitch), sin(yaw) * cos(pitch));
+	right = glm::normalize(glm::cross(front, worldUp));
+	up = glm::cross(right, front);
+}
+

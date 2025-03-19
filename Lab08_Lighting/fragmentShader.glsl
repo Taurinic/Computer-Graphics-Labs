@@ -19,6 +19,8 @@ uniform float constant;
 uniform float quadratic;
 uniform float linear;
 
+uniform Light lightSources[maxLights];
+
 void main()
 {
      //Attentuation

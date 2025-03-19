@@ -31,6 +31,18 @@ struct Object
     std::string name;
 };
 
+
+// Light struct
+struct Light
+{
+    glm::vec3 position;
+    glm::vec3 colour;
+    float constant;
+    float linear;
+    float quadratic;
+    unsigned int type;
+};
+
 int main( void )
 {
     // =========================================================================
@@ -91,7 +103,7 @@ int main( void )
     
     // Compile shader program
     unsigned int shaderID, lightShaderID;
-    shaderID      = LoadShaders("vertexShader.glsl", "fragmentShader.glsl");
+    shaderID = LoadShaders("vertexShader.glsl", "multipleLightsFragmentShader.glsl");
     lightShaderID = LoadShaders("lightVertexShader.glsl", "lightFragmentShader.glsl");
     
     // Activate shader
@@ -105,10 +117,10 @@ int main( void )
     teapot.addTexture("../assets/blue.bmp", "diffuse");
     
     // Use wireframe rendering (comment out to turn off)
-   // glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+     glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
     //Defining teapot object lighting properties 
-    teapot.ka = 0.1f;
+    teapot.ka = 0.3f;
     teapot.kd = 0.9;
 
     //defining light source properties 
@@ -118,6 +130,8 @@ int main( void )
     float constant = 1.0f;
     float linear = 0.1f;
     float quadractic = 0.02f;
+
+   
 
     // Teapot positions
     glm::vec3 positions[] = {
@@ -144,6 +158,10 @@ int main( void )
         object.angle = Maths::radians(20.0f * i);
         objects.push_back(object);
     }
+
+
+    // Create vector of light sources
+    std::vector<Light> lightSources;
     
     // Render loop
     while (!glfwWindowShouldClose(window))

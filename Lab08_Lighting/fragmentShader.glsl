@@ -15,8 +15,16 @@ uniform float kd;
 uniform vec3 lightColour;
 uniform vec3 lightPosition;
 
+uniform float constant;
+uniform float quadratic;
+uniform float linear;
+
 void main()
 {
+     //Attentuation
+    float distance = length(lightPosition - fragmentPosition);
+    float attentuation = 1.0 / (constant + linear * distance + quadratic * distance * distance);
+
     // Object colour
     vec3 objectColour = vec3(texture(diffuseMap, UV));
     
@@ -31,4 +39,6 @@ void main()
 
     // Calculate fragment colour
     fragmentColour = ambient + diffuse;
+
+
 }

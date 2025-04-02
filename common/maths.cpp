@@ -43,6 +43,19 @@ Quaternion::Quaternion(const float w, const float x, const float y, const float 
 	this->z = z;
 }
 
+Quaternion::Quaternion(const float pitch, const float yaw)
+{
+	float cosPitch = cos(0.5f * pitch);
+	float sinPitch = sin(0.5f * pitch);
+	float cosYaw = cos(0.5f * yaw);
+	float sinYaw = sin(0.5f * yaw);
+
+	this->w = cosPitch * cosYaw;
+	this->x = sinPitch * cosYaw;
+	this->y = cosPitch * sinYaw;
+	this->z = sinPitch * sinYaw;
+}
+
 glm::mat4 Quaternion::matrix()
 {
 	float s = 2.0f / (w * w + x * x + y * y + z * z);

@@ -14,6 +14,9 @@ public:
 	//Constructors
 	Quaternion();
 	Quaternion(const float w, const float x, const float y, const float z);
+	Quaternion(const float pitch, const float yaw);
+
+	glm::mat4 matrix();
 };
 
 

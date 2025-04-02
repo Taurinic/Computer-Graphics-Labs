@@ -77,3 +77,33 @@ glm::mat4 Quaternion::matrix()
 
 	return rotate;
 }
+
+// SLERP
+Quaternion Maths::SLERP(Quaternion q1, Quaternion q2, const float t)
+{
+	// Calculate cos(theta)
+	float cosTheta = q1.w * q2.w + q1.x * q2.x + q1.y * q2.y + q1.z * q2.z;
+
+	// If q1 and q2 are close together return q2 to avoid divide by zero errors
+	if (cosTheta > 0.9999f)
+		return q2;
+
+	// Avoid taking the long path around the sphere by reversing sign of q2
+	if (cosTheta < 0)
+	{
+		q2 = Quaternion(-q2.w, -q2.x, -q2.y, -q2.z);
+		cosTheta = -cosTheta;
+	}
+
+	// Calculate SLERP
+	Quaternion q;
+	float theta = acos(cosTheta);
+	float a = sin((1.0f - t) * theta) / sin(theta);
+	float b = sin(t * theta) / sin(theta);
+	q.w = a * q1.w + b * q2.w;
+	q.x = a * q1.x + b * q2.x;
+	q.y = a * q1.y + b * q2.y;
+	q.z = a * q1.z + b * q2.z;
+
+	return q;
+}

@@ -41,7 +41,14 @@ void Camera::calculateCameraVectors() {
 void Camera::quaternionCamera()
 {
     // Calculate camera orientation quaternion from the Euler angles
-    Quaternion orientation(-pitch, yaw);
+    //Quaternion orientation(-pitch, yaw);
+    
+    // Calculate camera orientation quaternion from the Euler angles
+    Quaternion newOrientation(-pitch, yaw);
+
+    // Apply SLERP
+    orientation = Maths::SLERP(orientation, newOrientation, 0.2f);
+
 
     // Calculate the view matrix
     view = orientation.matrix() * Maths::translate(-eye);

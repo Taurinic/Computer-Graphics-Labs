@@ -14,9 +14,12 @@ public:
 	float far = 100.0f;
 
 	// Camera Euler angles
-	float yaw = Maths::radians(-90.0f);
+	float yaw = 0.0f;
 	float pitch = 0.0f;
 	float roll = 0.0f;
+
+	// Quaternion camera
+	Quaternion orientation = Quaternion(pitch, yaw);
 
 	//Camera Vectors 
 	glm::vec3 eye;
@@ -37,4 +40,10 @@ public:
 	void calculateMatrices();
 
 	void calculateCameraVectors();
+
+	void quaternionCamera();
+
+	
+
+	
 };

@@ -161,7 +161,7 @@ int main( void )
         
         // Calculate view and projection matrices
         camera.target = camera.eye + camera.front;
-        camera.calculateMatrices();
+        camera.quaternionCamera();
         
         // Activate shader
         glUseProgram(shaderID);

@@ -37,3 +37,20 @@ void Camera::calculateCameraVectors() {
     if (pitch < -89.0f)
         pitch = -89.0f;
 }
+
+void Camera::quaternionCamera()
+{
+    // Calculate camera orientation quaternion from the Euler angles
+    Quaternion orientation(-pitch, yaw);
+
+    // Calculate the view matrix
+    view = orientation.matrix() * Maths::translate(-eye);
+
+    // Calculate the projection matrix
+    projection = glm::perspective(fov, aspect, near, far);
+
+    // Calculate camera vectors from view matrix
+    right = glm::vec3(view[0][0], view[1][0], view[2][0]);
+    up = glm::vec3(view[0][1], view[1][1], view[2][1]);
+    front = -glm::vec3(view[0][2], view[1][2], view[2][2]);
+}

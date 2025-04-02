@@ -109,6 +109,7 @@ int main( void )
     
     // Load the textures
     teapot.addTexture("../assets/diamond_normal.png", "normal");
+    teapot.addTexture("../assets/neutral_specular.png", "specular");
     
     // Define teapot object lighting properties
     teapot.ka = 0.2f;

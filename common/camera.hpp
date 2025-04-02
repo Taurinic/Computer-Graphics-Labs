@@ -10,7 +10,7 @@ public:
 	//projection parameters		
 	float fov = Maths::radians(120.0f);
 	float aspect = 1024.0f / 768.0f;
-	float near = 0.2f;
+	float near = 0.1f;
 	float far = 100.0f;
 
 	// Camera Euler angles

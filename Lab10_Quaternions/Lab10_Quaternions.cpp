@@ -226,6 +226,10 @@ void keyboardInput(GLFWwindow *window)
 
     if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
         camera.eye += 5.0f * deltaTime * camera.right;
+
+    //Sprint  
+    if (glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS)
+        camera.eye += 10.0f * deltaTime * camera.front;
 }
 
 void mouseInput(GLFWwindow *window)

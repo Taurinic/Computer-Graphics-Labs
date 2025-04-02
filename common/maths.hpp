@@ -5,6 +5,18 @@
 #include<glm/glm.hpp>
 #include<glm/gtx/io.hpp>
 
+//Quaternion class 
+class Quaternion
+{
+public:
+	float w, x, y, z;
+
+	//Constructors
+	Quaternion();
+	Quaternion(const float w, const float x, const float y, const float z);
+};
+
+
 
 //Math class 
 class Maths {

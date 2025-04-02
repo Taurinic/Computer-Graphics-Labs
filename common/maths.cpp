@@ -44,3 +44,14 @@ glm::mat4 Maths::rotate(const float& angle, glm::vec3 v)
 
 	return rotate;	
 }
+
+//Quaternions 
+Quaternion::Quaternion() {}
+
+Quaternion::Quaternion(const float w, const float x, const float y, const float z)
+{
+	this->w = w;
+	this->x = x;
+	this->y = y;
+	this->z = z;
+}

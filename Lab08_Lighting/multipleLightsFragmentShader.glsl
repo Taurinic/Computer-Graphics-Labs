@@ -55,7 +55,7 @@ void main ()
 
         //Calculate spotLight
         if(lightSources[i].type == 2)
-            fragmentColour += spotLight(lightPosition, lightDirection, lightColour, cosPhi, constant, linear, quatratic);
+            fragmentColour += spotLight(lightPosition, lightDirection, lightColour, cosPhi, constant, linear, quadratic);
     }
 }
 

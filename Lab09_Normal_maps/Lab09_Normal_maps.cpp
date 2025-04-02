@@ -103,7 +103,7 @@ int main( void )
     Model sphere("../assets/sphere.obj");
     
     // Load the textures
-    teapot.addTexture("../assets/blue.bmp", "diffuse");
+    teapot.addTexture("../assets/diamond_normal.png", "normal");
     
     // Define teapot object lighting properties
     teapot.ka = 0.2f;
